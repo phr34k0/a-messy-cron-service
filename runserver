@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function checkrun {
+        local status=`pgrep -f blissflixx.py | wc -l`
+        if [ $status -ne 0 ]; then
+                echo "blissflixx is running"
+                sleep 0.5
+    else
+                cd ~/blissflixx
+                sleep 0.1
+                nohup python ./blissflixx.py &
+                sleep 1
+                rm -rf nohup*
+        fi
+        return $status
+}
+
+checkrun
+
+
+#every 1 min
+
+*/1 * * * * ~/blissflixx/runserver
