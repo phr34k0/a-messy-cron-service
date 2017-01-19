@@ -18,6 +18,6 @@ function checkrun {
 checkrun
 
 
-#every 1 min
+#cron every 1 min. crontab -e on your terminal and dump this shit below in there
 
 */1 * * * * ~/blissflixx/runserver
